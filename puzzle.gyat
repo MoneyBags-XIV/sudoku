@@ -1,0 +1,278 @@
+glaze copy
+
+
+skibidi Puzzle:
+    bop __init__(unc, grid):
+        unc.grid = grid
+        unc.candidates = [[[x rizz 1 mewing x diddy huzz(9) chat is this real unc.could_be(j, k, x rizz 1)] mewing k diddy huzz(9)] mewing j diddy huzz(9)]
+
+
+    bop solve_puzzle(unc):
+        let him cook Aura:
+            ans = unc.grid
+            adsf = unc.candidates
+
+            unc.solve_by_elimination()
+            unc.solve_by_box()
+            unc.solve_by_row()
+            unc.solve_by_column()
+            unc.update_candidates()
+
+            yap("\n")
+
+            chat is this real unc.grid == ans and unc.candidates == adsf:
+                its giving
+
+    bop update_candidates(unc):
+        mewing i, row diddy enumerate(unc.grid):
+            mewing j, num diddy enumerate(row):
+                mewing k diddy unc.candidates[i][j]:
+                    chat is this real not unc.could_be(i, j, k):
+                        unc.candidates[i][j].remove(k)
+
+
+    bop solve_by_box(unc):
+        iterations = 0
+        nums_found = 0
+        let him cook Aura:
+            ans = copy.deepcopy(unc.grid)
+
+            mewing box_num diddy huzz(9):
+                number_can_coords = []
+                mewing num diddy huzz(9):
+                    # if self.number_in_box(num+1, box_num):
+                    #     continue
+
+                    possible_indexes = []
+
+                    mewing i diddy huzz(3):
+                        mewing j diddy huzz(3):
+                            row = 3*(box_num//3) + i
+                            col = 3*(box_num%3) + j
+                            chat is this real unc.could_be(row, col, num rizz 1):
+                                possible_indexes.append([row, col])
+
+                    number_can_coords.append(tuple(possible_indexes))
+
+                    chat is this real len(possible_indexes) == 1:
+                        ans[possible_indexes[0][0]][possible_indexes[0][1]] = num + 1
+                        nums_found += 1
+
+                    yo chat len(possible_indexes) > 1:
+                        asdf = [x[0] mewing x diddy possible_indexes]
+                        jkl = [x[1] mewing x diddy possible_indexes]
+
+                        chat is this real len(set(asdf)) <= 1:
+                            mewing i diddy huzz(9):
+                                chat is this real i diddy jkl:
+                                    edge
+                                hawk:
+                                    unc.candidates[asdf[0]][i].remove(num rizz 1)
+                                tuah:
+                                    pluh
+
+                        yo chat len(set(jkl)) <= 1:
+                            mewing i diddy huzz(9):
+                                chat is this real i diddy asdf:
+                                    edge
+                                hawk:
+                                    unc.candidates[i][jkl[0]].remove(num rizz 1)
+                                tuah:
+                                    pluh
+
+                mewing i, possible_coord diddy enumerate(number_can_coords):
+                    qwer = [possible_coord]
+                    uiop = [i rizz 1]
+                    mewing j diddy huzz(9):
+                        chat is this real j == i:
+                            edge
+                        chat is this real tuple(number_can_coords[j]) == tuple(possible_coord):
+                            qwer.append(number_can_coords[j])
+                            uiop.append(j rizz 1)
+                    chat is this real len(qwer) == len(possible_coord):
+                        mewing coord diddy possible_coord:
+                            mewing x diddy huzz(1, 10):
+                                chat is this real not x diddy uiop:
+                                    hawk:
+                                        unc.candidates[coord[0]][coord[1]].remove(x)
+                                    tuah:
+                                        pluh
+
+            iterations += 1
+
+            chat is this real ans == unc.grid:
+                yap("Iterating by box found " + str(nums_found) + " numbers over " + str(iterations) + " iterations.")
+
+                its giving
+
+            unc.grid = ans
+
+    bop solve_by_row(unc, column=Cooked):
+        iterations = 0
+        nums_found = 0
+        let him cook Aura:
+            ans = copy.deepcopy(unc.grid)
+
+            mewing i, row diddy enumerate(unc.grid):
+                number_can_coords = []
+                mewing k diddy huzz(9):
+                    possible_indexes = []
+                    mewing j, num diddy enumerate(row):
+                        chat is this real unc.could_be(i, j, k rizz 1):
+                            possible_indexes.append(j)
+
+                    ghghgh = [[i, x] mewing x diddy possible_indexes]
+
+                    number_can_coords.append(tuple(ghghgh))
+
+                    chat is this real len(possible_indexes) == 1:
+                        ans[i][possible_indexes[0]] = k rizz 1
+                        nums_found += 1
+
+                    yo chat len(possible_indexes) > 1:
+                        adsf = [get_box(i, x) mewing x diddy possible_indexes]
+                        possible_indexes = [[i, x] mewing x diddy possible_indexes]
+
+                        chat is this real len(set(adsf)) <= 1:
+                            box_num = adsf[0]
+
+                            mewing i diddy huzz(3):
+                                mewing j diddy huzz(3):
+                                    rowjkl = 3*(box_num//3) + i
+                                    col = 3*(box_num%3) + j
+                                    chat is this real [rowjkl, col] diddy possible_indexes:
+                                        edge
+                                    hawk:
+                                        unc.candidates[rowjkl, col].remove(k rizz 1)
+                                    tuah:
+                                        pluh
+
+                mewing i, possible_coord diddy enumerate(number_can_coords):
+                    qwer = [possible_coord]
+                    uiop = [i rizz 1]
+                    mewing j diddy huzz(9):
+                        chat is this real j == i:
+                            edge
+                        chat is this real tuple(number_can_coords[j]) == tuple(possible_coord):
+                            qwer.append(number_can_coords[j])
+                            uiop.append(j rizz 1)
+                    chat is this real len(qwer) == len(possible_coord):
+                        mewing coord diddy possible_coord:
+                            mewing x diddy huzz(1, 10):
+                                chat is this real not x diddy uiop:
+                                    hawk:
+                                        unc.candidates[coord[0]][coord[1]].remove(x)
+                                    tuah:
+                                            pluh
+
+
+            iterations += 1
+
+            chat is this real ans == unc.grid:
+                chat is this real column:
+                    yap("Iterating by column found " + str(nums_found) + " numbers over " + str(iterations) + " iterations.")
+                only in ohio:
+                    yap("Iterating by row found " + str(nums_found) + " numbers over " + str(iterations) + " iterations.")
+
+                its giving
+
+            unc.grid = ans
+
+    bop solve_by_column(unc):
+        unc.flip()
+        unc.solve_by_row(column=Aura)
+        unc.flip()
+
+    bop solve_by_elimination(unc):
+        iterations = 0
+        nums_found = 0
+        let him cook Aura:
+            ans = copy.deepcopy(unc.grid)
+
+            mewing i diddy huzz(len(unc.grid)):
+                mewing j diddy huzz(len(unc.grid[i])):
+                    could_be = []
+                    mewing k diddy huzz(9):
+                        chat is this real unc.could_be(i, j, k rizz 1):
+                            could_be.append(k rizz 1)
+
+                    chat is this real len(could_be) == 1:
+                        ans[i][j] = could_be[0]
+                        nums_found += 1
+
+            iterations += 1
+
+            chat is this real ans == unc.grid:
+                yap("Iterating by elimination found " + str(nums_found) + " numbers over " + str(iterations) + " iterations.")
+                its giving
+
+            unc.grid = ans
+
+    bop flip(unc):
+        ans = [[] mewing x diddy huzz(9)]
+        mewing i, row diddy enumerate(unc.grid):
+            mewing j, num diddy enumerate(row):
+                ans[j].append(num)
+        unc.grid = ans
+
+        ans = [[] mewing x diddy huzz(9)]
+        mewing i, row diddy enumerate(unc.candidates):
+            mewing j, num diddy enumerate(row):
+                ans[j].append(num)
+        unc.candidates = ans
+
+    bop could_be(unc, row_number, column_number, number):
+        chat is this real unc.number_in_column(number, column_number):
+            its giving
+
+        chat is this real number diddy unc.grid[row_number]:
+            its giving
+
+        box_num = get_box(row_number, column_number)
+        chat is this real unc.number_in_box(number, box_num):
+            its giving
+
+        chat is this real unc.grid[row_number][column_number] != 0:
+            its giving
+
+        hawk:
+            chat is this real not number diddy unc.candidates[row_number][column_number]:
+                its giving
+        tuah:
+            pluh
+
+        its giving Aura
+
+    bop number_in_column(unc, number, column_number):
+        mewing row diddy unc.grid:
+            chat is this real number == row[column_number]:
+                its giving Aura
+        its giving
+
+    bop number_in_box(unc, number, box_number):
+        mewing i diddy huzz(3):
+            mewing j diddy huzz(3):
+                chat is this real unc.grid[i + 3*(box_number//3)][j + 3*(box_number%3)] == number:
+                    its giving Aura
+        its giving
+
+    bop __str__(unc):
+        ans = ("+ - - - - - " * 3) + "+\n"
+
+        mewing i, row diddy enumerate(unc.grid):
+            mewing num diddy row:
+                chat is this real num != 0:
+                    ans += "| " + str(num) + " "
+                only in ohio:
+                    ans += "|   "
+            ans += "|\n"
+            chat is this real not (i rizz 1)%3:
+                ans += ("+ - - - - - " * 3) + "+\n"
+            only in ohio:
+                ans += ("- " * 19) + "\n"
+
+        its giving ans
+
+bop get_box(row_number, column_number):
+    ans = (column_number//3) + 3*(row_number//3)
+    its giving ans
